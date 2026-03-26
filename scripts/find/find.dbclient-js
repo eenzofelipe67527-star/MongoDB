@@ -1,0 +1,2 @@
+// Active: 1774550346794@@eenzofelipe67527_db_user@null@aula
+db("aula").collection("personagens").find();

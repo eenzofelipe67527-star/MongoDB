@@ -1,0 +1,66 @@
+// Active: 1774550346794@@eenzofelipe67527_db_user@null@aula
+db("aula").collection("personagens").find({nome: "Monkey D. Luffy"});
+
+db("aula").collection("personagens").find({ idade: 19});
+
+db("aula")
+.collection("personagens")
+.find({
+     idade: {
+         $lt: 19 },
+         });
+
+db("aula").collection("personagens")
+.find({
+     idade: {
+         $gt: 21 },
+         });
+
+db("aula").collection("personagens")
+.find({
+     idade: {
+         $gte: 19 },
+         });
+
+db("aula").collection("personagens")
+.find({
+     idade: {
+         $lte: 19 },
+         });
+
+         db("aula").collection("personagens")
+.find({
+     ilha: "Ilha Dawn",
+     nome: "Monkey D. Luffy",
+         });
+
+         db("aula").collection("personagens").find({
+            idade: {
+            $gt: 18,
+             $lt: 21,
+            },
+                },
+         )
+
+         db("aula").collection("personagens").find({
+    $or: [
+        {idade: {$lt: 20} },
+        {idade: {$gt: 21} }
+    ]
+         })
+
+         db("aula")
+         .collection("personagens")
+         .find({
+             idade: {
+                $ne: 19
+             }
+         })
+
+         db("aula")
+         .collection("personagens")
+         .find({
+             nome: {
+                $regex: "Luffy"
+             }
+         })
