@@ -3,11 +3,11 @@ db ("aula").collection("personagens").insertMany([
     {
         nome: "Gecko Moria",
         fruta: "Shadow",
-        idade: 48
+        idade: 48,
     },
     {
         nome: "Bartholomew Kuma",
         fruta: "Barrier",
-        idade: 45
-    }
+        idade: 45,
+    },
 ]);

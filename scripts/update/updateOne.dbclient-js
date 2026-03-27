@@ -1,0 +1,27 @@
+// Active: 1774550346794@@eenzofelipe67527_db_user@null@aula
+db("aula").collection("personagens").updateOne(
+    {"nome": "Sanji"},
+    {
+       $set: {
+         ilha: "Vila da Folha",
+        }
+    },
+)
+
+db("aula").collection("personagens").updateOne(
+    { idade: 19},
+    {
+        $inc: {
+            idade: 1,
+        },
+    },
+);
+
+db("aula").collection("personagens").findOneAndUpdate(
+    { idade: 20},
+    {
+        $inc: {
+            idade: -1,
+        },
+    },
+);
