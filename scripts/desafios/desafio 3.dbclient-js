@@ -1,0 +1,19 @@
+// Active: 1774550346794@@eenzofelipe67527_db_user@null@aula
+db("aula").collection("frutas").aggregate([
+    {
+        $lookup: {
+            from: "personagens",
+            localField: "_id",
+            foreignField: "frutas_ids",
+            as: "personagens"
+            }
+        },
+        {
+        $group: {
+            _id: "$tipo",
+            frutas: { $push: "$nome" },
+            personagens: { $push: "$nome" }
+        }
+    }
+])
+//inserir lista de personagens que comeram cada tipo de fruta

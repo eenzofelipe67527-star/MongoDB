@@ -1,0 +1,23 @@
+// Active: 1774550346794@@eenzofelipe67527_db_user@null@aula
+db("aula").collection("personagens").aggregate([
+    {
+        $group: {
+            _id: {
+                $cond: {
+                    if: {
+                        $or: [
+                            { $eq: ["$fruta", ""] },
+                            { $eq: ["$fruta", null] },
+                            { $eq: [{_$ifNull: ["$fruta, null"]}, null] },
+                        ]
+                    },
+                    then: "Sem fruta",
+                    else: "Usuário de fruta",
+                },  
+            },
+            mediaIdade: { $avg: "$idade",},
+            total: {$sum: 1},
+            personagens: { $push: "$$ROOT"}
+        },
+    },
+]);

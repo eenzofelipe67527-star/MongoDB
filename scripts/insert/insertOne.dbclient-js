@@ -5,3 +5,16 @@ db ("aula").collection("personagens").insertOne({
     idade: 48,
 }
 );
+
+db ("aula").collection("origens").insertOne({
+    local: "Many Worlds",
+    ilha: "Ilha Cambridge",
+}
+);
+
+db ("aula").collection("origens").insertOne({
+    nome: "Xull",
+    frutas_id: [ObjectID('69cc05f2e09cce7e5297d26d'), ObjectID('69cc0664e09cce7e5297d26f')],
+    origem_id: ObjectID('69cc0581e09cce7e5297d26c'),
+}
+);

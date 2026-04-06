@@ -1,0 +1,40 @@
+// Active: 1774550346794@@eenzofelipe67527_db_user@null@aula
+db("aula").collection("frutas").aggregate([
+    {
+        $lookup: {
+            from: "personagens",
+            localField: "_id",
+            foreignField: "frutas_ids",
+            as: "personagens"
+            },
+        },
+        {
+            unwind: "$personagens",
+        },
+        {
+            $group: {
+                _id: "$tipo",
+                frutas: { $addToSet: "$nome" },
+                personagens: { $addToSet: "$personagens.nome" }
+            },
+        },
+        {
+            $set: {
+                frutas: { $sortArray: { input: "$frutas", sortBy: 1 } },
+                personagens: { $sortArray: { input: "$personagens", sortBy: {
+                    nome: 1,      
+          } 
+        } 
+      },
+   }
+}
+]).sort({ _id: 1 });
+
+db("aula").collection("frutas").aggregate([
+    {
+        $group: {
+            _id: "$tipo",
+            frutas: { $push: "$nome" },
+            },
+        },
+]);
