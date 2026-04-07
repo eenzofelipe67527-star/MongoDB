@@ -1,0 +1,11 @@
+// Active: 1775581353397@@db_enzo@null@sample_mflix
+db("sample_mflix").collection("movies").aggregate([
+    {
+        $group: {
+            _id: "$genres",
+            avgRating: { $avg: "$imdb.rating" },
+             total: { $sum: 1 },
+             movies: { $push: "$$ROOT" },
+        }
+    }
+])
